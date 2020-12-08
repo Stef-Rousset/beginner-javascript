@@ -88,6 +88,7 @@ div.insertAdjacentElement('afterbegin', newDiv);
 const buttons = document.querySelectorAll('.delete');
 function removeCard(event){
   buttonClicked = event.currentTarget;
+  // buttonClicked.parentElement.remove();
   buttonClicked.closest('.playerCard').remove();
 }
 buttons.forEach(button => button.addEventListener('click', removeCard));
