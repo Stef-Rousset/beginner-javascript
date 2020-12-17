@@ -10,7 +10,49 @@
 
 
 <body>
-
+  <style>
+    .turt {
+      --x: 0px;
+      --y: 0px;
+      transform: translateX(var(--x)) translateY(var(--y));
+    }
+  </style>
+   <img width="200" src="./turtle.png" alt="Turt" class="turt">
 </body>
+<script>
+  const turtle = document.querySelector('.turt');
+  let x = 0;
+  let y = 0;
+  const speed = 20;
+  function handleKey(event) {
+    if(!event.key.includes('Arrow')){
+      return;
+    }
+    switch (event.key) {
+      case 'ArrowUp' :
+      y -= 1;
+      break;
+      case 'ArrowDown' :
+      y += 1;
+      break;
+      case 'ArrowLeft' :
+      x -= 1;
+      break;
+      case 'ArrowRight' :
+      x += 1;
+      break;
+      default:
+      console.log('wrong request');
+      break;
+    }
+    turtle.setAttribute('style',`
+      --x: ${x * speed}px;
+      --y: ${y * speed}px;
+      ` )
+  }
+
+
+  window.addEventListener('keydown', handleKey);
+</script>
 
 </html>
