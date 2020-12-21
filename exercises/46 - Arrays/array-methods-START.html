@@ -119,9 +119,8 @@
     */
 
     // find the first rating that talks about a burger with find()
-    const burger = feedback.find(rating => {
-      rating.comment.includes('burger');
-    });
+    const burger = feedback.find(rating =>
+      rating.comment.includes('burger'));
     console.log(burger);
     // find all ratings that are above 2 with filter()
     // find all ratings that talk about a burger with filter()
