@@ -39,11 +39,9 @@
       { comment: 'I DONT LIKE BURGERS', rating: 1 },
     ];
 
-
     /*
       Static Methods
     */
-
     // Array.of();
 
     // Make a function that creates a range from x to y with Array.from();
@@ -119,8 +117,7 @@
     */
 
     // find the first rating that talks about a burger with find()
-    const burger = feedback.find(rating =>
-      rating.comment.includes('burger'));
+    const burger = feedback.find(rating => rating.comment.includes('burger'));
     console.log(burger);
     // find all ratings that are above 2 with filter()
     // find all ratings that talk about a burger with filter()
