@@ -128,7 +128,11 @@
     /*
       Looping Methods
     */
-
+    // toppings.forEach(topping => console.log(topping));
+    function toppingsInfos(topping, index, originalArray){
+      console.log(`The ${topping} is at index ${index} in this array ${originalArray}`);
+    }
+    toppings.forEach(toppingsInfos);
   </script>
 </body>
 
