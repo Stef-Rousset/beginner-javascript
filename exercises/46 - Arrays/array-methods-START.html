@@ -117,17 +117,38 @@
     */
 
     // find the first rating that talks about a burger with find()
-    const burger = feedback.find(rating => rating.comment.includes('burger'));
+    const burger = feedback.find(singleFeedback => singleFeedback.comment.includes('burger'));
     console.log(burger);
     // find all ratings that are above 2 with filter()
+    const goodReviews = feedback.filter(singleFeedback => singleFeedback.rating > 2);
+    console.table(goodReviews);
     // find all ratings that talk about a burger with filter()
+    const burgerReviews = feedback.filter(singleFeedback => singleFeedback.comment.includes('burger'));
+    console.log(burgerReviews);
     // Remove the one star rating however you like!
-
+    const bestReviews = feedback.filter(singleFeedback => singleFeedback.rating !== 1);
+    console.log(bestReviews);
     // check if there is at least 5 of one type of meat with some()
+    const typeOfMeats = Object.values(meats).some(value => value >= 5);
+    console.log(typeOfMeats);
     // make sure we have at least 3 of every meat with every()
+    const meatQuantity = Object.values(meats).every(value => value >= 3);
+    console.log(meatQuantity);
     // sort the toppings alphabetically with sort()
+    console.log(toppings.sort());
     // sort the order totals from most expensive to least with .sort()
-    // Sort the prices with sort()
+    const sortedOrders = orderTotals.sort(function(first, second){
+      return first - second;
+    });
+    console.log(sortedOrders);
+    // Sort the prices with sort() Object.entries(prices) renvoit
+    console.log(Object.entries(prices));
+    const sortedPrices = Object.entries(prices).sort(function(first,second){
+      return first[1] - second[1]; //Object.entries(prices) renvoit un array de subarrays qui
+                                  //contiennent en 1er la key et en 2eme la value et ici on order by value
+    })
+    console.log(sortedPrices);
+    console.log(Object.fromEntries(sortedPrices));
 
     /*
       Looping Methods (next)
