@@ -10,9 +10,41 @@
 
 <body>
   <script>
-    // Grab all the text from a web page
-    // Count how many times each letter and number occurs
+    const text = `
+    DÉCRYPTAGES Un an à peine après le début de la pandémie due au coronavirus, le premier vaccin contre le coronavirus a être autorisé dans l’Union européenne.
 
+Le vaccin longtemps espéré pour mettre fin à la crise du Covid-19 est devenu réalité. L’Agence européenne des médicaments (AEM) a donné son feu vert lundi 21 décembre, au vaccin du duo Pfizer-BioNTech, suivi par l’autorisation de la Commission européenne. Des campagnes de vaccination ont déjà débuté au Royaume-Uni et aux Etats-Unis.
+
+Le premier ministre a présenté mercredi à l’Assemblée nationale la stratégie de la France, qui repose sur une vaccination gratuite et non obligatoire. Comme l’avait recommandé la Haute Autorité de santé (HAS), les résidents des Ehpad seront prioritaires ; leur vaccination pourra débuter à la toute fin du mois de décembre.
+Cette campagne vaccinale qui s’organise en un temps record, moins d’un an seulement après le séquençage complet du génome du SARS-CoV-2, suscite de nombreuses interrogations.
+
+Nous avons essayé de répondre aux principales interrogations. Pour trouver des éléments en rapport avec vos questions, vous pouvez utiliser le champ de recherche ci-dessous en utilisant des mots-clés comme « politique sanitaire », « efficacité », ou « enjeu économique ».
+
+`;
+  // Grab all the text from a web page
+
+
+    // tout mettre dans un array
+    const allCaracters = text.split('');
+    // enlever les caracteres speciaux cad pas a-z A-Z 0-9
+    // tout passer en lowercase
+    const filteredCaracters = allCaracters.filter(caracter =>
+      caracter.match(/[0-9a-zA-Z]/)).map(caracter =>
+      caracter.toLowerCase());
+  // Count how many times each letter and number occurs
+    function caractersReducer(totals, letter){
+      totals[letter] ? totals[letter] += 1 :  totals[letter] = 1;
+      return totals;
+    }
+    const inventory = filteredCaracters.reduce(caractersReducer, {});
+    // console.log(inventory); renvoit un object
+  // sort by most popular caracter
+    // const sortedInventory = Object.entries(inventory);
+    // console.log(sortedInventory);
+    const sortedInventory = Object.entries(inventory).sort(function(first,second){
+      return second[1] - first[1];
+    }); // renvoit un array de sous-arrays
+    console.log(sortedInventory);
 
   </script>
 </body>
