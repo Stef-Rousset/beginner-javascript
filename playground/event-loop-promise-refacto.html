@@ -45,6 +45,24 @@
         setTimeout(resolve, ms)
       });
     }
+
+    async function animate2(event) {
+      const el = event.currentTarget;
+      el.textContent = 'GO';
+      await wait(500)
+        el.classList.add('circle');
+      await wait(500);
+        el.classList.add('red');
+      await wait(500);
+        el.classList.remove('red');
+        el.classList.remove('circle');
+        el.classList.add('purple');
+      await wait(500);
+        el.classList.add('fadeOut');
+      await wait(1000);
+        el.classList.remove('fadeOut', 'purple');
+    }
+
     function animate(event) {
       const el = event.currentTarget;
       el.textContent = 'GO';
@@ -66,7 +84,7 @@
         el.classList.remove('fadeOut', 'purple');
       })
     }
-    go.addEventListener('click', animate);
+    go.addEventListener('click', animate2);
     // function go(e) {
     //   const el = e.currentTarget;
     //   // 1. Change the text to GO when clicked.
