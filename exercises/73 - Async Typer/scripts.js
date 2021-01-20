@@ -12,7 +12,7 @@ async function write(element){
   const text = element.textContent;
   let soFar = '';
   for (const letter of text){
-    // console.log(lement.dataset);
+    // console.log(element.dataset);
     const { typeMin, typeMax } = element.dataset; // correspond au data-type-min et max
     const randomTime = getRandomBetween(typeMin,typeMax);
     await wait(randomTime);
