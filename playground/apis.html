@@ -9,8 +9,37 @@
 </head>
 
 <body>
+  <p class="paragraph"></p>
   <script>
+    // const print = document.querySelector('.paragraph');
+    // print.textContent = 'Loading...'
+    // const BaseEndpoint = 'https://api.github.com/users';
+    // fetch(`${BaseEndpoint}/wesbos`).then(response => {
+    //   return response.json();
+    //   }).then(data => {
+    //     // console.log(data);
+    //     print.textContent = `My name is ${data.name}`;
+    //   }).catch(handleError)
 
+    // function handleError(err){
+    //   console.log(err);
+    // }
+
+    // refacto avec async/await
+    function handleError(err) {
+      console.log(err);
+      print.textContent = `Something went wrong: ${err}`;
+    }
+
+    const print = document.querySelector('.paragraph');
+    const BaseEndpoint = 'https://api.github.com/users';
+    async function displayUser(username){
+      print.textContent = 'Loading...'
+      const response = await fetch(`${BaseEndpoint}/${username}`);
+      const data = await response.json();
+      print.textContent = `My name is ${data.name}`;
+    }
+    displayUser('ssaunier').catch(handleError);
   </script>
 </body>
 
